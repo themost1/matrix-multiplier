@@ -1,5 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+#vim
+*~
+*.swp
+
 # dependencies
 /node_modules
 
