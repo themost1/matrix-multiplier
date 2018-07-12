@@ -17,9 +17,6 @@
   to { transform: rotate(360deg); }
 }
 
-.box0 {
-	float: right;
-}
 
 .infoZone {
 	text-align:center;
@@ -27,6 +24,17 @@
 
 input[id="square"] {
     width: 30px;
+}
+
+.matrix {
+	position: relative;
+	float: left;
+	text-align: left;
+}
+
+.matrices {
+	margin: 100 100; 
+	 overflow: visible;
 }
 
 .square{

@@ -37,19 +37,19 @@ class App extends Component {
 		          <br />
 
 		  
-		  <div classname = "box0">
+		  <div className = "box0">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange0}
 		text = "Matrix 1 Columns"/>
           </div>  
 		  
-		  <div classname = "box1">
+		  <div className = "box1">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange1}
 		text = "Matrix 1 Rows/Matrix 2 Columns"/>
           </div>  
 	  
 		{this.state.matrixNum>1 &&
 
-          <div classname = "box2">
+          <div className = "box2">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange2}
 		text = "Matrix 2 Rows/Matrix 3 Columns"/>
           </div>  
@@ -59,7 +59,7 @@ class App extends Component {
 
 		  {this.state.matrixNum>2 &&
 
-		  <div classname = "box3">
+		  <div className = "box3">
 		<NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange3}
 		text = "Matrix 3 Rows/Matrix 4 Columns"/>
 		  </div>  
@@ -68,7 +68,7 @@ class App extends Component {
 
           {this.state.matrixNum>3 &&
 
-          <div classname = "box4">
+          <div className = "box4">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange4}
 		text = "Matrix 4 Rows"/>
           </div>  
@@ -78,12 +78,50 @@ class App extends Component {
 
 
 	</div>
+	
 
-	<div classname="matrix">
+	<div className = "matrices">
+	<div className="matrix">
 	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
 	</div>
+	
+	{
+		this.state.matrixNum>1 && 	
+	<div className="matrix">
+	<Matrix width={this.state.col2} height={this.state.col1} readonly='false'/>
+	</div>
+	}
+	
+	
+	<br /> <br /> <br /> <br /> <br /> <br /><br />
+	
+	{this.state.matrixNum==1 && 	
+	<div className="matrix">
+	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+	</div>
+	}
+	
+	{this.state.matrixNum==2 && 	
+	<div className="matrix">
+	<Matrix width={this.state.col2} height={this.state.row1} readonly='false'/>
+	</div>
+	}
+	
+	{this.state.matrixNum==3 && 	
+	<div className="matrix">
+	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+	</div>
+	}
+	
+	{this.state.matrixNum==4 && 	
+	<div className="matrix">
+	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+	</div>
+	}
+	
+	</div>
 
-      </div>
+    </div>
     );
   }
 
