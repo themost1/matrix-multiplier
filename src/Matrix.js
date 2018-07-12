@@ -29,10 +29,10 @@ class Matrix extends React.Component {
     let table = []
 
     // Outer loop to create parent
-    for (let i = 0; i < this.state.height; i++) {
+    for (let i = 0; i < this.props.height; i++) {
       let children = []
       //Inner loop to create children
-      for (let j = 0; j < this.state.width; j++) {
+      for (let j = 0; j < this.props.width; j++) {
         children.push(this.renderSquare(0))
       }
       //Create the parent and add the children

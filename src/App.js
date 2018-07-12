@@ -12,6 +12,12 @@ class App extends Component {
     this.state = {matrixNum: 1, row1: 0, col1: 0, col2: 0, col3: 0, col4: 0};
 
     this.handleChange = this.handleChange.bind(this);
+	this.handleChange0 = this.handleChange0.bind(this);
+	this.handleChange1 = this.handleChange1.bind(this);
+	this.handleChange2 = this.handleChange2.bind(this);
+	this.handleChange3 = this.handleChange3.bind(this);
+	this.handleChange4 = this.handleChange3.bind(this);
+	
     this.handleSubmit = this.handleSubmit.bind(this);
   }
        
@@ -32,19 +38,19 @@ class App extends Component {
 
 		  
 		  <div classname = "box0">
-	    <NumMatBox handleSubmit={this.handleSubmit}
+	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange0}
 		text = "Matrix 1 Columns"/>
           </div>  
 		  
 		  <div classname = "box1">
-	    <NumMatBox handleSubmit={this.handleSubmit}
+	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange1}
 		text = "Matrix 1 Rows/Matrix 2 Columns"/>
           </div>  
 	  
 		{this.state.matrixNum>1 &&
 
           <div classname = "box2">
-	    <NumMatBox handleSubmit={this.handleSubmit}
+	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange2}
 		text = "Matrix 2 Rows/Matrix 3 Columns"/>
           </div>  
 
@@ -54,7 +60,7 @@ class App extends Component {
 		  {this.state.matrixNum>2 &&
 
 		  <div classname = "box3">
-		<NumMatBox handleSubmit={this.handleSubmit}
+		<NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange3}
 		text = "Matrix 3 Rows/Matrix 4 Columns"/>
 		  </div>  
 
@@ -63,7 +69,7 @@ class App extends Component {
           {this.state.matrixNum>3 &&
 
           <div classname = "box4">
-	    <NumMatBox handleSubmit={this.handleSubmit}
+	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange4}
 		text = "Matrix 4 Rows"/>
           </div>  
 
@@ -74,7 +80,7 @@ class App extends Component {
 	</div>
 
 	<div classname="matrix">
-	<Matrix width='5' height='5' readonly='false'/>
+	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
 	</div>
 
       </div>
@@ -87,10 +93,10 @@ class App extends Component {
   }
   
   handleChange0(event) {
-    this.setState({ row1: event.target.value })
+    this.setState({ col1: event.target.value })
   }
   handleChange1(event) {
-    this.setState({ col1: event.target.value })
+    this.setState({ row1: event.target.value })
   }
   handleChange2(event) {
     this.setState({ col2: event.target.value })
