@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NumMatBox from './NumMatBox.js';
+import Matrix from './Matrix.js';
 
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
           <h1 className="App-title">Matrix Multiplier</h1>
         </header>
       
-	
+
 	
         <div className='infoZone'>
           <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange}
@@ -67,10 +68,14 @@ class App extends Component {
           </div>  
 
           }
+		  
+
 
 	</div>
 
-
+	<div classname="matrix">
+	<Matrix width='5' height='5' readonly='false'/>
+	</div>
 
       </div>
     );

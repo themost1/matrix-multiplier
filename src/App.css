@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
@@ -20,3 +20,27 @@
 .box0 {
 	float: right;
 }
+
+.infoZone {
+	text-align:center;
+}
+
+input[id="square"] {
+    width: 30px;
+}
+
+.square{
+ /* Float both forms to the left */
+ float: left; 
+ /* borders added for visibility. Just remove them */
+}
+.square#updateForm {
+ clear: right;
+ /* with some space to the left of the second form */
+ margin-right: 20px; 
+}
+
+.board-row {
+	position: absolute;
+}
+
