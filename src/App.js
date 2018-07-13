@@ -39,19 +39,19 @@ class App extends Component {
 		  
 		  <div className = "box0">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange0}
-		text = "Matrix 1 Columns"/>
+		text = "Matrix 1 Rows"/>
           </div>  
 		  
 		  <div className = "box1">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange1}
-		text = "Matrix 1 Rows/Matrix 2 Columns"/>
+		text = "Matrix 1 Columns/Matrix 2 Rows"/>
           </div>  
 	  
 		{this.state.matrixNum>1 &&
 
           <div className = "box2">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange2}
-		text = "Matrix 2 Rows/Matrix 3 Columns"/>
+		text = "Matrix 2 Columns/Matrix 3 Rows"/>
           </div>  
 
         }
@@ -61,7 +61,7 @@ class App extends Component {
 
 		  <div className = "box3">
 		<NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange3}
-		text = "Matrix 3 Rows/Matrix 4 Columns"/>
+		text = "Matrix 3 Columns/Matrix 4 Rows"/>
 		  </div>  
 
 		  }
@@ -70,7 +70,7 @@ class App extends Component {
 
           <div className = "box4">
 	    <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange4}
-		text = "Matrix 4 Rows"/>
+		text = "Matrix 4 Columns"/>
           </div>  
 
           }
@@ -109,7 +109,7 @@ class App extends Component {
 	
 	{this.state.matrixNum==3 && 	
 	<div className="matrix">
-	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+	<Matrix width={this.state.col3} height={this.state.row1} readonly='false'/>
 	</div>
 	}
 	
@@ -131,10 +131,10 @@ class App extends Component {
   }
   
   handleChange0(event) {
-    this.setState({ col1: event.target.value })
+    this.setState({ row1: event.target.value })
   }
   handleChange1(event) {
-    this.setState({ row1: event.target.value })
+    this.setState({ col1: event.target.value })
   }
   handleChange2(event) {
     this.setState({ col2: event.target.value })

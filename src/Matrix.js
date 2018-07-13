@@ -4,7 +4,7 @@ import './App.css';
 function Square(props) {
   return (
     <form className="square" onClick={props.onClick}>
-      <input id="square" type="number" onChange={props.onChange} width='5px'/>
+      <input id="square" type="number" onChange={props.onChange} width='5px' defaultValue='0'/>
     </form>
   );
 }
