@@ -38,7 +38,7 @@ class App extends Component {
 	
         <div className='infoZone'>
           <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange}
-			text = "Number of Matrices (1-2)"/>
+			text = "Number of Matrices (only 2 for now!)"/>
 
 		          <br />
 
@@ -85,6 +85,7 @@ class App extends Component {
 
 	</div>
 	
+	<br /> <br /> <br />
 
 	<div className = "matrices">
 	<div className="matrix">
@@ -97,11 +98,16 @@ class App extends Component {
 	<Matrix width={this.state.col2} height={this.state.col1} matNum='2' onChange={this.onChangeMatrix} readonly='false'/>
 	</div>
 	}
+
 	
+
 	
-	<br /> <br /> <br /> <br /> <br /> <br /><br />
+	</div>
+
+		<br /> <br />
 	
-	{this.state.matrixNum==1 && 	
+	<div className = "matrices">
+		{this.state.matrixNum==1 && 	
 	<div className="matrix">
 	<Matrix width={this.state.col1} height={this.state.row1} layout={this.state.solution} readonly='false'/>
 	</div>
@@ -124,9 +130,8 @@ class App extends Component {
 	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
 	</div>
 	}
-	
 	</div>
-
+	
     </div>
     );
   }

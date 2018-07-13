@@ -24,7 +24,7 @@ class Square extends React.Component {
 	 if (this.props.readonly) {
 		  return (
     <form className="square" onClick={this.props.onClick}>
-      <input id="square" type="number" currNum='0' onChange={this.onChange} width='5px' defaultValue='0' value={this.props.value}/>
+      <input id="square" type="number" currNum='0' onChange={this.onChange} width='20px' defaultValue='0' value={this.props.value}/>
     </form>
   );
 	 }
@@ -32,7 +32,7 @@ class Square extends React.Component {
 	 else {
   return (
     <form className="square" onClick={this.props.onClick}>
-      <input id="square" type="number" currNum='0' onChange={this.onChange} width='5px' defaultValue='0' readonly={this.props.readonly}/>
+      <input id="square" type="number" currNum='0' onChange={this.onChange} width='20px' defaultValue='0' readonly={this.props.readonly}/>
     </form>
   );
 }
