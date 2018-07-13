@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {matrixNum: 1, row1: 0, col1: 0, col2: 0, col3: 0, col4: 0};
+    this.state = {matrixNum: 1, row1: 0, col1: 0, col2: 0, col3: 0, col4: 0, solution: Array(9).fill('0')};
 
     this.handleChange = this.handleChange.bind(this);
 	this.handleChange0 = this.handleChange0.bind(this);
@@ -21,6 +21,9 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 	
 	this.onChangeMatrix = this.onChangeMatrix.bind(this);
+	
+	this.matrix1 = Array(9).fill('0');
+	this.matrix2 = Array(9).fill('0');
 	
   }
        
@@ -35,7 +38,7 @@ class App extends Component {
 	
         <div className='infoZone'>
           <NumMatBox onSubmit={this.handleSubmit} onChange={this.handleChange}
-			text = "Number of Matrices (1-4)"/>
+			text = "Number of Matrices (1-2)"/>
 
 		          <br />
 
@@ -100,13 +103,13 @@ class App extends Component {
 	
 	{this.state.matrixNum==1 && 	
 	<div className="matrix">
-	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+	<Matrix width={this.state.col1} height={this.state.row1} layout={this.state.solution} readonly='false'/>
 	</div>
 	}
 	
 	{this.state.matrixNum==2 && 	
 	<div className="matrix">
-	<Matrix width={this.state.col2} height={this.state.row1} readonly='false'/>
+	<Matrix width={this.state.col2} height={this.state.row1} layout={this.state.solution} readonly='false'/>
 	</div>
 	}
 	
@@ -135,12 +138,22 @@ class App extends Component {
   
   handleChange0(event) {
     this.setState({ row1: event.target.value })
+	this.matrix1 = Array(this.state.col1*event.target.value).fill('0');
+	
+	this.setState({solution: Array(event.target.value*this.state.col2).fill('0')});
   }
   handleChange1(event) {
     this.setState({ col1: event.target.value })
+	this.matrix1 = Array(event.target.value*this.state.row1).fill('0');
+	this.matrix2 = Array(event.target.value*this.state.col2).fill('0');
+	
+	this.setState({solution: Array(this.state.row1*this.state.col2).fill('0')});
   }
   handleChange2(event) {
     this.setState({ col2: event.target.value })
+	this.matrix2 = Array(event.target.value*this.state.col1).fill('0');
+	
+	this.setState({solution: Array(this.state.row1*event.target.value).fill('0')});
   }
   handleChange3(event) {
     this.setState({ col3: event.target.value })
@@ -153,8 +166,33 @@ class App extends Component {
     event.preventDefault();
   }
   
-  onChangeMatrix(i, j) {
-	alert(i+" "+j)
+  onChangeMatrix(i, j, val) {
+	if (i==1) {
+		this.matrix1[j] = val;
+	}
+	else if (i==2) {
+		this.matrix2[j] = val;
+	}
+
+	
+	var temp =  Array(this.state.row1*this.state.col2).fill('0');
+	if (this.state.matrixNum==2) {
+		for (let a = 0; a<this.state.row1; a++) {
+			for (let b = 0; b<this.state.col2; b++) {
+			
+				var val = 0;
+				for (let c = 0; c<this.state.col1; c++) {
+					val += this.matrix1[a*this.state.col1+c] * this.matrix2[c*this.state.col2+b];
+				}
+				
+				temp[a*this.state.col1+b] = val;
+			
+			}
+		}
+	}
+	
+	this.setState( {solution: temp});
+
   }
   
 }
