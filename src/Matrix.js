@@ -14,13 +14,14 @@ class Matrix extends React.Component {
 	constructor(props) {
 		super(props);
 		
-		this.state = {width: props.width, height: props.height};
+		this.state = {width: props.width, height: props.height, matNum: props.matNum};
 	}
 	
   renderSquare(i) {
     return (
       <Square
         value={3}
+		onChange={() => this.props.onChange(this.props.matNum, i)}
       />
     );
   }
@@ -33,13 +34,15 @@ class Matrix extends React.Component {
       let children = []
       //Inner loop to create children
       for (let j = 0; j < this.props.width; j++) {
-        children.push(this.renderSquare(0))
+        children.push(this.renderSquare(i*this.props.width+j))
       }
       //Create the parent and add the children
       table.push(<tr>{children}</tr>)
     }
     return table
   }
+  
+
   
 
   render() {

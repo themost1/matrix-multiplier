@@ -19,6 +19,9 @@ class App extends Component {
 	this.handleChange4 = this.handleChange3.bind(this);
 	
     this.handleSubmit = this.handleSubmit.bind(this);
+	
+	this.onChangeMatrix = this.onChangeMatrix.bind(this);
+	
   }
        
   render() {
@@ -82,13 +85,13 @@ class App extends Component {
 
 	<div className = "matrices">
 	<div className="matrix">
-	<Matrix width={this.state.col1} height={this.state.row1} readonly='false'/>
+  <Matrix width={this.state.col1} height={this.state.row1} matNum='1' onChange={this.onChangeMatrix} readonly='false'/>
 	</div>
 	
 	{
 		this.state.matrixNum>1 && 	
 	<div className="matrix">
-	<Matrix width={this.state.col2} height={this.state.col1} readonly='false'/>
+	<Matrix width={this.state.col2} height={this.state.col1} matNum='2' onChange={this.onChangeMatrix} readonly='false'/>
 	</div>
 	}
 	
@@ -149,6 +152,11 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
   }
+  
+  onChangeMatrix(i, j) {
+	alert(i+" "+j)
+  }
+  
 }
 
 export default App;
