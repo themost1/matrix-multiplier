@@ -4,6 +4,9 @@ import './App.css';
 import NumMatBox from './NumMatBox.js';
 import Matrix from './Matrix.js';
 
+import times from './times.png';
+import equals from './equals.png';
+
 
 class App extends Component {
   constructor(props) {
@@ -93,11 +96,36 @@ class App extends Component {
   <Matrix width={this.state.col1} height={this.state.row1} matNum='1' onChange={this.onChangeMatrix} readonly='false'/>
 	</div>
 	
+
 	{
-		this.state.matrixNum>1 && 	
-	<div className="matrix">
+		this.state.matrixNum>1 &&
+			this.state.row1>0 &&
+			this.state.col1>0 &&
+			this.state.col2>0 &&
+					<div className={["matrix", "image"].join(' ')}>
+		<img src={times} width="15" height="18" />	
+		</div>
+	}
+
+	{
+		this.state.matrixNum>1 &&
+
+
+
+		<div className="matrix">
 	<Matrix width={this.state.col2} height={this.state.col1} matNum='2' onChange={this.onChangeMatrix} readonly='false'/>
 	</div>
+	}
+
+	{this.state.matrixNum>2 && 
+		this.state.row1>0 &&
+		this.state.col1>0 &&
+		this.state.col2>0 &&
+		this.state.col3>0 &&
+
+	<div className={["matrix", "image"].join(' ')}>
+		<img src={times} width="15" height="18" />	
+		</div>
 	}
 
 	{this.state.matrixNum>2 && 	
@@ -106,6 +134,16 @@ class App extends Component {
 	</div>
 	}
 
+
+	{
+		this.state.matrixNum>1 &&
+			this.state.row1>0 &&
+			this.state.col1>0 &&
+			this.state.col2>0 &&
+					<div className={["matrix", "image"].join(' ')}>
+		<img src={equals} width="15" height="18" />	
+		</div>
+	}
 	
 
 	

@@ -34,6 +34,15 @@ input[id="square"] {
 	margin-left: 17px;
 }
 
+.matrix.image {
+	position: relative;
+	float: left;
+	text-align: left;
+	margin-right: 17px;
+	margin-left: 17px;
+	margin-top: 15px;
+}
+
 .matrices {
 	margin: 100 100; 
 	 overflow: visible;
@@ -53,5 +62,10 @@ input[id="square"] {
 
 .board-row {
 	position: absolute;
+}
+
+.image {
+	position: absolute;
+	display: inline;
 }
 
